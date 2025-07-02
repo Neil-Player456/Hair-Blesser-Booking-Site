@@ -4,8 +4,6 @@ import hairBlesserOfficial from "./assets/hairBlesserOfficial.png";
 
 
 
-
-
 export const App = () => {
  
 
@@ -19,6 +17,9 @@ export const App = () => {
         height: "100vh",
         width: "100vw",
       }}>
+        <div>
+          
+        </div>
 
   </div>
   )
