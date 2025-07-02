@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import hairBlesserOfficial from "./assets/hairBlesserOfficial.png";
 
 
 
@@ -11,8 +12,8 @@ export const App = () => {
   return (
   <div className="home container-fluid"
       style={{
-        backgroundImage: `url(${hairBG})`,
-        backgroundSize: "contain",
+        backgroundImage: `url(${hairBlesserOfficial})`,
+        backgroundSize: "cover",
         backgroundPosition: "center", 
         backgroundRepeat: "no-repeat",
         height: "100vh",
