@@ -9,7 +9,7 @@ export default function Navbar() {
     >
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
-          HairBlesser
+          Fashioned by Jorgia
         </NavLink>
 
         <button
