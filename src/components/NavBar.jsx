@@ -9,7 +9,7 @@ export default function Navbar() {
     >
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
-          Fashioned by Jorgia
+          HairBlesser Fashioned by Jorgia
         </NavLink>
 
         <button
@@ -26,6 +26,17 @@ export default function Navbar() {
 
         <div className="collapse navbar-collapse" id="main-navbar">
           <ul className="navbar-nav ms-auto">
+             <li className="nav-item">
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  "nav-link" + (isActive ? " active" : "")
+                }
+              >
+                Home
+              </NavLink>
+            </li>
             <li className="nav-item">
               <NavLink
                 to="/about"
@@ -58,7 +69,7 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/"
+                to="/book"
                 end
                 className={({ isActive }) =>
                   "nav-link" + (isActive ? " active" : "")
