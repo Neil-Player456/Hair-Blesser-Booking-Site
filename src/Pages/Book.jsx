@@ -27,8 +27,6 @@ export const Book = () => {
         style={{ zIndex: 2 }}
       >
         {/* You can add content here like a button or heading */}
-        
-
       </div>
     </div>
   );

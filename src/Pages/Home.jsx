@@ -5,21 +5,35 @@ import { Link } from "react-router-dom";
 export const Home = () => {
   return (
     <div
-      className="home container-fluid d-flex justify-content-center align-items-center"
+      className="home container-fluid d-flex justify-content-center align-items-center position-relative"
       style={{
-        backgroundImage: `url(${hairBlesserOfficial})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
         height: "100vh",
         width: "100vw",
+        overflow: "hidden",
       }}
     >
-      <Link to="/book">
-        <button type="button" className="custom-btn btn-lg">
-          Book Now
-        </button>
-      </Link>
+      <div
+        className="position-absolute w-100 h-100"
+        style={{
+          backgroundImage: `url(${hairBlesserOfficial})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          filter: "blur(1px)",
+          zIndex: 1,
+        }}
+      />
+      <div
+        className="position-relative z-2 d-flex justify-content-center align-items-center w-100 h-100"
+        style={{ zIndex: 2 }}
+      >
+        {/* You can add content here like a button or heading */}
+        <Link to="/book">
+          <button type="button" className="custom-btn btn-lg">
+            Book Now
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
