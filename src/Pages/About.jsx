@@ -28,8 +28,36 @@ export const About = () => {
       >
         {/* You can add content here like a button or heading */}
         <div className="section py-5 text-center text-white">
-          <h1>About</h1>
-          <p>Information about HairBlesser.</p>
+          <div>
+            <h1>Reviews</h1>
+            <div
+              style={{
+                height: "2px",
+                backgroundColor: "white",
+                width: "60%",
+                margin: "1.5rem auto",
+              }}
+            ></div>
+            <h1>Buisness Hours</h1>
+             <div
+              style={{
+                height: "2px",
+                backgroundColor: "white",
+                width: "60%",
+                margin: "1.5rem auto",
+              }}
+            ></div>
+            <h1>Cancellation Policy</h1>
+             <div
+              style={{
+                height: "2px",
+                backgroundColor: "white",
+                width: "60%",
+                margin: "1.5rem auto",
+              }}
+            ></div>
+            <h1>Rating & Reviews</h1>
+          </div>
         </div>
       </div>
     </div>
