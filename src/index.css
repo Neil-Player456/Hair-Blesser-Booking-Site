@@ -2,6 +2,12 @@
   text-shadow: 4px 4px 6px hotpink;
 }
 
+.navbar-brand:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
+}
+
 .navbar-nav .nav-link {
   transition: box-shadow 0.2s ease-in-out;
   
@@ -9,4 +15,48 @@
 
 .navbar-nav .nav-link:hover {
   box-shadow: 0 4px 8px -2px hotpink;
+}
+
+.reviews {
+  text-shadow: 4px 4px 6px hotpink;
+  font-family: Courier New;
+}
+
+.reviews:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
+}
+
+.buisnessHours {
+  text-shadow: 4px 4px 6px hotpink;
+  font-family: Courier New;
+}
+
+.buisnessHours:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
+}
+
+.cancellationPolicy {
+  text-shadow: 4px 4px 6px hotpink;
+  font-family: Courier New;
+}
+
+.cancellationPolicy:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
+}
+
+.ratingAndReviews {
+  text-shadow: 4px 4px 6px hotpink;
+  font-family: Courier New;
+}
+
+.ratingAndReviews:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
 }

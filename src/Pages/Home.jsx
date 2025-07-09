@@ -19,7 +19,7 @@ export const Home = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          filter: "blur(1     px)",
+          // filter: "blur(1px)",
           zIndex: 1,
         }}
       />
