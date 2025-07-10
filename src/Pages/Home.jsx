@@ -19,7 +19,6 @@ export const Home = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          // filter: "blur(1px)",
           zIndex: 1,
         }}
       />
@@ -27,7 +26,6 @@ export const Home = () => {
         className="position-relative z-2 d-flex justify-content-center align-items-center w-100 h-100"
         style={{ zIndex: 2 }}
       >
-        {/* You can add content here like a button or heading */}
         <Link to="/book">
           <button type="button" className="custom-btn btn-lg">
             Book Now
