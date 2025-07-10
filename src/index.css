@@ -26,6 +26,7 @@
   box-shadow: 0 0 15px hotpink;
   color: hotpink;
   border-color: hotpink;
+  border-radius: 12px; 
 }
 
 .buisnessHours {
@@ -37,6 +38,7 @@
   box-shadow: 0 0 15px hotpink;
   color: hotpink;
   border-color: hotpink;
+  border-radius: 12px; 
 }
 
 .cancellationPolicy {
@@ -48,6 +50,7 @@
   box-shadow: 0 0 15px hotpink;
   color: hotpink;
   border-color: hotpink;
+  border-radius: 12px; 
 }
 
 .ratingAndReviews {
@@ -59,4 +62,66 @@
   box-shadow: 0 0 15px hotpink;
   color: hotpink;
   border-color: hotpink;
+  border-radius: 12px; 
 }
+
+.askAQuestion {
+  text-shadow: 4px 4px 6px hotpink;
+  font-family: Courier New;
+}
+
+.askAQuestion:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
+  border-radius: 12px; 
+}
+
+.sendEmailBtn {
+  text-shadow: 4px 4px 6px hotpink;
+  font-family: Courier New;
+}
+
+.sendEmailBtn:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
+  border-radius: 12px; 
+}
+
+#floatingName {
+ font-family: 'Comic Sans MS', cursive;
+}
+
+#floatingName:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
+  border-radius: 12px; 
+}
+
+#floatingEmail {
+ font-family: 'Comic Sans MS', cursive;
+}
+
+#floatingEmail:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
+  border-radius: 12px; 
+}
+
+#floatingMessage {
+ font-family: 'Comic Sans MS', cursive;
+}
+
+#floatingMessage:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
+  border-radius: 12px; 
+}
+
+
+
+
