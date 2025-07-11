@@ -1,20 +1,19 @@
 .custom-btn {
-  background-color: transparent !important;
+  background-color: hotpink;
   color: white;
-  border: 2px solid white;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 12px;
   transition: all 0.3s ease;
-  padding: 1.25rem 2.5rem; 
-  font-size: 1.5rem; 
-  border-radius: 8px;
 } 
 
 .custom-btn:hover {
-  box-shadow: 0 0 15px hotpink;
-  color: hotpink;
-  border-color: hotpink;
+  background-color: deeppink;
+  box-shadow: 0 0 12px hotpink;
 }
 
-/* .btn-hotpink {
+.btn-hotpink {
   background-color: hotpink;
   color: white;
   font-weight: bold;
@@ -27,4 +26,20 @@
 .btn-hotpink:hover {
   background-color: deeppink;
   box-shadow: 0 0 12px hotpink;
-} */
+}
+
+.card-body {
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  font-family: Courier New;
+}
+
+.card-body:hover {
+  background-color: deeppink;
+  box-shadow: 0 0 12px hotpink;
+}
+
