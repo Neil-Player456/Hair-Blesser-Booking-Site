@@ -74,10 +74,40 @@ const hairstyles = [
     disclaimer: "Hair included, There is a $40 non refundable deposit that is due at least 48HRS before your appointment or appointment will be canceled. Cancellation fee will be charged. Pease have hair washed - blow dried. For 2 colors the curls only there will be an extra $60 charge. Any color(s) available for the braiding hair (no extra charge) Bob length is for natural hair that DOES NOT  pass the top of your shoulders. There WILL be an extra charge if your hair passes your shoulers. Definitely deep wave is used, plese Let Me Know if you would like something else.",
   },
     {
-    name: "Men Braids/Styles",
+    name: "Island Twist Services",
     image: style,
-    variations: ["Straight Back", "Finger Coils", "Box Braids", "Two Strand Twist"],
-    disclaimer: "Pease have hair washed - blow dried.",
+    variations: ["Large Waist Length", "Large Thigh Length", "Medium Mid Length", "Medium Waist Length", "Medium Butt Length", "Smedium Mid Length", "Smedium Waist Length", "Smedium Butt Length", "Small Mid Length", "Small Waist Length", "Small Butt Length"],
+    disclaimer: "Hair is included, Pease have hair washed - blow dried.",
+  },
+    {
+    name: "BOHO Island Twist Services",
+    image: style8,
+    variations: ["BOHO Small BOB", "BOHO Smedium BOB", "BOHO Small Mid Length", "BOHO Small Waist Length", "BOHO Smedium Mid Length", "BOHO Smedium Waist Length", "BOHO Smedium Butt Length", "BOHO Smedium Mid Length", "BOHO Smedium Waist Length", "BOHO Medium Butt Length", "BOhO Medium Thigh Length"],
+    disclaimer: "There is a $30 deposit for all BOHO styles as of June 1st, 2025 due to an increase in price for 100% human hair. (Zelle, cash app, Apple Pay) Hair included. Pease have hair washed - blow dried. Bob length is for natural hair that DOES NOT pass the top of your shoulders. You will be charged an extra fee if so.",
+  },
+    {
+    name: "French Curl Braids",
+    image: style8,
+    variations: ["Medium Mid Length", "Medium Waist Length", "Smedium Mid Length", "Smedium Waist Length"],
+    disclaimer: "Hair included. Pease have hair washed - blow dried.",
+  },
+    {
+    name: "Luna Locs",
+    image: style8,
+    variations: ["Smedium Mid Length (hair included)", "Smedium Waist Length (Hair included)", "Smedium Thigh Length (Hair included)", "Medium Mid Length (Hair included)", "Medium Waist Length (Hair included)", "Medium Thigh Length (hair included)", "Smedium Size (Bring your own curls)", "Medium Size (Bring your own curls)"],
+    disclaimer: "$100 non refundable deposit if you need me to provide the human curls. These are soft locs with human curls. At least 5 bundles needed for a full look. This style needs to be booked at least a 5 day advance due to the process of attching locs. It takes me about 9Hrs before your appointment. Pease have hair washed - blow dried.",
+  },
+      {
+    name: "Soft Locs Services",
+    image: style8,
+    variations: ["Soft loc Touch Up", "Soft loc Take Down", "Small Mid Back", "Small Waist Length", "Small Thigh Length", "Smedium Mid Back", "Smedium Waist Length", "Smedium Thigh Length"],
+    disclaimer: "Hair included. Pease have hair washed - blow dried for loc install services. For loc take down I only take them down no wash, if you would like a wash let me know in advance, please keep in mind I do work from home",
+  },
+      {
+    name: "goddess Soft Locs/Synthetic Curls",
+    image: style8,
+    variations: ["Smedium Mid Length", "Smedium Waist Length", "Smedium Butt Length", "Smedium Thigh Length", "Smedium (Bring your own hair)", "Medium Mid Length", "Medium Mid Length", "Medium Waist Length", "Medium Butt Length", "Medium Thigh Length", "Medium (Bring your own hair)"],
+    disclaimer: "$40 deposit due at least 48HRS before appointment. Pease have hair washed - blow dried w/ no product.",
   },
 ];
 
