@@ -148,6 +148,19 @@
   border-radius: 12px; 
 }
 
+.book-title {
+  font-family: 'Comic Sans MS', cursive;
+  text-shadow: 4px 4px 6px hotpink;
+}
+
+.book-title:hover {
+  box-shadow: 0 0 15px hotpink;
+  color: hotpink;
+  border-color: hotpink;
+  border-radius: 12px; 
+}
+
+
 
 
 

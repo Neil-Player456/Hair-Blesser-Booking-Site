@@ -65,7 +65,7 @@ export const Contact = () => {
             <label htmlFor="floatingMessage">Message</label>
           </div>
           <div className="hairBlesserMessage text-center">
-            <span>Hair blesser will recieve an email with your message</span>
+            <span>Hair Blesser will recieve an email with your message</span>
           </div>
 
           <button
