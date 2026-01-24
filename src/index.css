@@ -124,18 +124,6 @@
   border-radius: 12px; 
 }
 
-.service-hairstyles {
-  font-family: 'Comic Sans MS', cursive;
-  text-shadow: 4px 4px 6px hotpink;
-}
-
-.service-hairstyles:hover {
-  box-shadow: 0 0 15px hotpink;
-  color: hotpink;
-  border-color: hotpink;
-  border-radius: 12px; 
-}
-
 .variation-options {
   font-family: 'Comic Sans MS', cursive;
   text-shadow: 4px 4px 6px hotpink;

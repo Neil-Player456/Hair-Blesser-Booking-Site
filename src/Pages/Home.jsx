@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import hairBlesserOfficial from "../assets/hairBlesserOfficial.png";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowButton(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div
       className="home container-fluid d-flex justify-content-center align-items-center position-relative"
@@ -22,15 +32,22 @@ export const Home = () => {
           zIndex: 1,
         }}
       />
+
+      <div className="stars-overlay" ></div>
+
+      <div className="hair-blesser-intro welcome-script">❤️WELCOME❤️</div>
+
       <div
         className="position-relative z-2 d-flex justify-content-center align-items-center w-100 h-100"
         style={{ zIndex: 2 }}
       >
-        <Link to="/book">
-          <button type="button" className="custom-btn btn-lg">
-            Book Now
-          </button>
-        </Link>
+        {showButton && (
+          <Link to="/book">
+            <button type="button" className="custom-btn btn-lg fade-in">
+              Book Now
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
