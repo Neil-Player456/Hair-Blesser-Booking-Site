@@ -26,7 +26,7 @@ export default function Navbar() {
 
         <div className="collapse navbar-collapse" id="main-navbar">
           <ul className="navbar-nav ms-auto">
-             <li className="nav-item">
+            <li className="nav-item">
               <NavLink
                 to="/"
                 end
@@ -45,16 +45,6 @@ export default function Navbar() {
                 }
               >
                 About
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/services"
-                className={({ isActive }) =>
-                  "nav-link" + (isActive ? " active" : "")
-                }
-              >
-                Services
               </NavLink>
             </li>
             <li className="nav-item">

@@ -922,12 +922,14 @@ const Book = () => {
       className="home container-fluid position-relative text-white"
       style={{ minHeight: "100vh" }}
     >
-      
+
       <div
-        className="position-absolute w-100 h-100"
+        className="position-fixed top-0 start-0 w-100 h-100"
         style={{
           backgroundImage: `url(${hairBlesserOfficial})`,
           backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
           filter: "blur(2px)",
           zIndex: 1,
         }}
