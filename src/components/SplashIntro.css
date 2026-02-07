@@ -1,0 +1,152 @@
+.splash-intro {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #070707 0%, #000 75%);
+  z-index: 99999;
+  overflow: hidden;
+  animation: splashFade 0.8s ease forwards;
+  animation-delay: 5.3s; 
+}
+
+.splash-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.12);
+  animation: cinematicZoom 8s ease forwards; 
+}
+
+.dark-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.1), rgba(0,0,0,0.9));
+  z-index: 2;
+}
+
+.magical-text {
+  position: absolute;
+  bottom: 18%;
+  width: 100%;
+  text-align: center;
+  font-family: "Cinzel Decorative", serif;
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  color: #f5d77a;
+  text-shadow:
+    0 0 6px rgba(245,215,122,0.5),
+    0 0 20px rgba(245,215,122,0.35);
+  z-index: 6;
+  opacity: 0;
+  animation: textReveal 2.2s ease forwards;
+  animation-delay: 1.8s;
+  overflow: hidden;
+}
+
+.light-sweep {
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  animation: sweep 3s ease forwards;
+  animation-delay: 2.6s;
+}
+
+.dust {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.5;
+}
+
+.dust-slow {
+  background:
+    radial-gradient(2px 2px at 20% 80%, gold, transparent),
+    radial-gradient(1px 1px at 60% 90%, gold, transparent),
+    radial-gradient(2px 2px at 80% 70%, gold, transparent);
+  animation: dustDriftSlow 8s linear infinite;
+}
+
+.dust-medium {
+  background:
+    radial-gradient(1.5px 1.5px at 30% 85%, gold, transparent),
+    radial-gradient(2px 2px at 50% 75%, gold, transparent),
+    radial-gradient(1px 1px at 70% 90%, gold, transparent);
+  animation: dustDriftMedium 6s linear infinite;
+}
+
+.dust-fast {
+  background:
+    radial-gradient(1px 1px at 40% 95%, gold, transparent),
+    radial-gradient(1.5px 1.5px at 65% 85%, gold, transparent);
+  animation: dustDriftFast 4s linear infinite;
+}
+
+.light-orbs {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(60px 60px at 20% 30%, rgba(255,215,140,0.08), transparent),
+    radial-gradient(80px 80px at 70% 40%, rgba(255,215,140,0.06), transparent),
+    radial-gradient(50px 50px at 50% 70%, rgba(255,215,140,0.05), transparent);
+  animation: orbFloat 10s ease-in-out infinite alternate;
+}
+
+@keyframes cinematicZoom {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+
+@keyframes textReveal {
+  to { opacity: 1; }
+}
+
+@keyframes sweep {
+  to { left: 120%; }
+}
+
+@keyframes dustDriftSlow {
+  from { transform: translate(-20px, 30px); }
+  to { transform: translate(40px, -40px); }
+}
+
+@keyframes dustDriftMedium {
+  from { transform: translate(-30px, 40px); }
+  to { transform: translate(60px, -60px); }
+}
+
+@keyframes dustDriftFast {
+  from { transform: translate(-40px, 50px); }
+  to { transform: translate(80px, -80px); }
+}
+
+@keyframes orbFloat {
+  from { transform: translateY(0); }
+  to { transform: translateY(-30px); }
+}
+
+@keyframes splashFade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .magical-text {
+    bottom: 22%;
+    font-size: clamp(2.2rem, 9vw, 3.6rem);
+    padding: 0 1rem;
+  }
+}
