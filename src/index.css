@@ -1,20 +1,35 @@
+/* =========================
+   GLOBAL iOS SAFETY RESET
+========================= */
 html,
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
   height: 100%;
+  background-color: black;
   overflow-x: hidden;
 }
 
+/* Prevent iOS safe-area white bars */
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* =========================
+   Navbar (unchanged visually)
+========================= */
 .navbar {
   position: fixed;
-  top: 0;
+  top: env(safe-area-inset-top);
   left: 0;
   width: 100%;
   z-index: 1000;
 }
 
+/* =========================
+   Text & UI styles (UNCHANGED)
+========================= */
 .navbar-brand {
   text-shadow: 4px 4px 6px hotpink;
 }
@@ -86,6 +101,9 @@ body {
   border-radius: 12px;
 }
 
+/* =========================
+   Home – Desktop (UNCHANGED)
+========================= */
 .home {
   position: relative;
   width: 100%;
@@ -104,31 +122,32 @@ body {
   z-index: 0;
 }
 
-
-/* @media (max-width: 768px) {
-
+/* =========================
+   iPhone PORTRAIT FIX (FINAL)
+========================= */
+@media (max-width: 768px) {
   .home.container-fluid {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 56px;
-    padding-bottom: 0;
+    padding: 0 !important;
   }
 
   .home {
-    min-height: 100dvh; 
+    min-height: 100dvh;
+    padding-top: calc(56px + env(safe-area-inset-top));
+    padding-bottom: env(safe-area-inset-bottom);
     overflow: hidden;
   }
 
   .home-bg {
     position: absolute;
-    top: 56px;
+    top: calc(56px + env(safe-area-inset-top));
     left: 0;
     width: 100%;
-    height: calc(100dvh - 56px);
-    background-size: contain; 
+    height: calc(
+      100dvh - 56px - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-color: black;
   }
-} */
-
+}
