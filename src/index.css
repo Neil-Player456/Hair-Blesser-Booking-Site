@@ -105,20 +105,27 @@
    Mobile-specific Fixes
    ========================= */
 @media (max-width: 768px) {
+  /* Home container */
   .home {
-    padding-top: 56px; /* make space for fixed navbar */
-    min-height: calc(100svh - 56px); /* full mobile viewport minus navbar */
+    position: relative;
+    width: 100%;
+    height: 100svh; /* full mobile viewport */
+    padding-top: 56px; /* space for navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
   }
 
+  /* Background image */
   .home-bg {
-    position: absolute; /* ensure it stays behind content */
+    position: fixed; /* stay behind all content */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center center; /* fully center the image */
+    height: 100svh; /* full mobile viewport */
+    background-size: cover; /* scale and crop properly */
+    background-position: center center; /* always center image */
     background-repeat: no-repeat;
     z-index: 0;
   }
