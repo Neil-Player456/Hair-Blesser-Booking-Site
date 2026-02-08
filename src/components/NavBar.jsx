@@ -3,13 +3,26 @@ import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand navbar-dark bg-transparent px-4 position-fixed w-100" style={{ zIndex: 1000, top: 0 }}
-    >
+    <nav className="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           HairBlesser Fashioned by Jorgia
         </NavLink>
 
+        {/* Hamburger button */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#main-navbar"
+          aria-controls="main-navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        {/* Navbar links */}
         <div className="collapse navbar-collapse" id="main-navbar">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
