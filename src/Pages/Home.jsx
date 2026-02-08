@@ -6,11 +6,7 @@ export const Home = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowButton(true);
-    }, 3000);
-
-    return () => clearTimeout(timer);
+    setShowButton(true);
   }, []);
 
   return (
@@ -34,8 +30,6 @@ export const Home = () => {
       />
 
       <div className="stars-overlay" ></div>
-
-      <div className="hair-blesser-intro welcome-script">❤️WELCOME❤️</div>
 
       <div
         className="position-relative z-2 d-flex justify-content-center align-items-center w-100 h-100"

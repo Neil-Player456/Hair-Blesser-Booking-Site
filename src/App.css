@@ -1,18 +1,4 @@
-.custom-btn {
-  background-color: hotpink;
-  color: white;
-  font-weight: bold;
-  border: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-
-.custom-btn:hover {
-  background-color: deeppink;
-  box-shadow: 0 0 12px hotpink;
-}
-
+.custom-btn,
 .btn-hotpink {
   background-color: hotpink;
   color: white;
@@ -23,6 +9,11 @@
   transition: all 0.3s ease;
 }
 
+.custom-btn {
+  animation-delay: 0.15s; 
+}
+
+.custom-btn:hover,
 .btn-hotpink:hover {
   background-color: deeppink;
   box-shadow: 0 0 12px hotpink;
@@ -35,12 +26,13 @@
   padding: 0.5rem 1.5rem;
   transition: all 0.3s ease;
   border-radius: 5px;
-  font-family: Courier New;
+  font-family: "Courier New";
 }
 
 .card-body:hover {
   background-color: deeppink;
   box-shadow: 0 0 12px hotpink;
+  cursor: pointer;
 }
 
 .stars-overlay {
@@ -54,13 +46,19 @@
   overflow: hidden;
 }
 
-.stars-overlay::before {
+.stars-overlay::before,
+.stars-overlay::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.stars-overlay::before {
   background:
     radial-gradient(1px 1px at 5% 10%, white, transparent),
     radial-gradient(2px 2px at 15% 30%, white, transparent),
@@ -71,61 +69,11 @@
     radial-gradient(2px 2px at 65% 60%, white, transparent),
     radial-gradient(3px 3px at 75% 15%, white, transparent),
     radial-gradient(1px 1px at 85% 80%, white, transparent),
-    radial-gradient(2px 2px at 95% 50%, white, transparent),
-    radial-gradient(1px 1px at 10% 80%, white, transparent),
-    radial-gradient(2px 2px at 20% 90%, white, transparent),
-    radial-gradient(3px 3px at 30% 5%, white, transparent),
-    radial-gradient(2px 2px at 40% 25%, white, transparent),
-    radial-gradient(1px 1px at 50% 15%, white, transparent),
-    radial-gradient(2px 2px at 60% 35%, white, transparent),
-    radial-gradient(1px 1px at 70% 45%, white, transparent),
-    radial-gradient(3px 3px at 80% 55%, white, transparent),
-    radial-gradient(1px 1px at 90% 65%, white, transparent),
-    radial-gradient(2px 2px at 95% 75%, white, transparent),
-    radial-gradient(1px 1px at 5% 85%, white, transparent),
-    radial-gradient(2px 2px at 15% 95%, white, transparent),
-    radial-gradient(3px 3px at 25% 10%, white, transparent),
-    radial-gradient(2px 2px at 35% 15%, white, transparent),
-    radial-gradient(1px 1px at 45% 25%, white, transparent),
-    radial-gradient(2px 2px at 55% 35%, white, transparent),
-    radial-gradient(1px 1px at 65% 45%, white, transparent),
-    radial-gradient(3px 3px at 75% 55%, white, transparent),
-    radial-gradient(1px 1px at 85% 65%, white, transparent),
-    radial-gradient(2px 2px at 95% 75%, white, transparent),
-    radial-gradient(1px 1px at 5% 20%, white, transparent),
-    radial-gradient(2px 2px at 10% 50%, white, transparent),
-    radial-gradient(3px 3px at 15% 60%, white, transparent),
-    radial-gradient(2px 2px at 20% 30%, white, transparent),
-    radial-gradient(1px 1px at 25% 40%, white, transparent),
-    radial-gradient(2px 2px at 30% 20%, white, transparent),
-    radial-gradient(3px 3px at 35% 10%, white, transparent),
-    radial-gradient(1px 1px at 40% 50%, white, transparent),
-    radial-gradient(2px 2px at 45% 60%, white, transparent),
-    radial-gradient(1px 1px at 50% 70%, white, transparent),
-    radial-gradient(2px 2px at 55% 15%, white, transparent),
-    radial-gradient(3px 3px at 60% 35%, white, transparent),
-    radial-gradient(1px 1px at 65% 45%, white, transparent),
-    radial-gradient(2px 2px at 70% 55%, white, transparent),
-    radial-gradient(1px 1px at 75% 65%, white, transparent),
-    radial-gradient(2px 2px at 80% 75%, white, transparent),
-    radial-gradient(3px 3px at 85% 85%, white, transparent),
-    radial-gradient(1px 1px at 90% 95%, white, transparent),
-    radial-gradient(2px 2px at 95% 10%, white, transparent),
-    radial-gradient(1px 1px at 5% 30%, white, transparent),
-    radial-gradient(3px 3px at 10% 40%, white, transparent),
-    radial-gradient(2px 2px at 15% 50%, white, transparent);
-  background-repeat: no-repeat;
-  background-size: cover;
+    radial-gradient(2px 2px at 95% 50%, white, transparent);
   animation: twinkle 4s infinite alternate;
 }
 
 .stars-overlay::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background:
     radial-gradient(1px 1px at 12% 22%, white, transparent),
     radial-gradient(2px 2px at 22% 42%, white, transparent),
@@ -136,19 +84,7 @@
     radial-gradient(1px 1px at 72% 72%, white, transparent),
     radial-gradient(3px 3px at 82% 12%, white, transparent),
     radial-gradient(1px 1px at 92% 42%, white, transparent),
-    radial-gradient(2px 2px at 97% 82%, white, transparent),
-    radial-gradient(1px 1px at 7% 22%, white, transparent),
-    radial-gradient(2px 2px at 17% 52%, white, transparent),
-    radial-gradient(3px 3px at 27% 62%, white, transparent),
-    radial-gradient(2px 2px at 37% 32%, white, transparent),
-    radial-gradient(1px 1px at 47% 42%, white, transparent),
-    radial-gradient(2px 2px at 57% 52%, white, transparent),
-    radial-gradient(1px 1px at 67% 62%, white, transparent),
-    radial-gradient(3px 3px at 77% 72%, white, transparent),
-    radial-gradient(1px 1px at 87% 82%, white, transparent),
-    radial-gradient(2px 2px at 97% 92%, white, transparent);
-  background-repeat: no-repeat;
-  background-size: cover;
+    radial-gradient(2px 2px at 97% 82%, white, transparent);
   animation: twinkle 6s infinite alternate;
 }
 
@@ -158,60 +94,19 @@
   100% { opacity: 0.2; }
 }
 
-.hair-blesser-intro {
-  position: absolute;
-  font-family: "Courier New", cursive;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: bold;
-  color: white;
-  text-shadow: 0 0 25px hotpink;
-  animation: introFade 6s ease forwards;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.welcome-script {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(4rem, 8vw, 6rem);
-  color: white;
-
-  text-shadow:
-    0 0 6px hotpink,
-    0 0 14px hotpink,
-    2px 2px 2px rgba(0, 0, 0, 0.4);
-
-  letter-spacing: 0.08rem;
-}
-
-@keyframes introFade {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
 .fade-in {
   animation: buttonFade 1.5s ease forwards;
 }
 
 @keyframes buttonFade {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (prefers-reduced-motion: reduce) {
+  .stars-overlay::before,
+  .stars-overlay::after,
+  .fade-in {
+    animation: none !important;
   }
 }

@@ -4,8 +4,8 @@
   background: radial-gradient(circle at center, #070707 0%, #000 75%);
   z-index: 99999;
   overflow: hidden;
-  animation: splashFade 0.8s ease forwards;
-  animation-delay: 5.3s; 
+  animation: splashFade 1s ease forwards;
+  animation-delay: 4s; 
 }
 
 .splash-bg {
@@ -15,7 +15,8 @@
   background-position: center;
   background-repeat: no-repeat;
   transform: scale(1.12);
-  animation: cinematicZoom 8s ease forwards; 
+  animation: cinematicZoom 3s ease forwards; 
+  animation-delay: 0.5s; 
 }
 
 .dark-vignette {
@@ -39,8 +40,8 @@
     0 0 20px rgba(245,215,122,0.35);
   z-index: 6;
   opacity: 0;
-  animation: textReveal 2.2s ease forwards;
-  animation-delay: 1.8s;
+  animation: textReveal 1.5s ease forwards;
+  animation-delay: 2s;
   overflow: hidden;
 }
 
@@ -56,8 +57,8 @@
     rgba(255,255,255,0.6),
     transparent
   );
-  animation: sweep 3s ease forwards;
-  animation-delay: 2.6s;
+  animation: sweep 2s ease forwards; 
+  animation-delay: 2.4s; 
 }
 
 .dust {
@@ -109,7 +110,8 @@
 }
 
 @keyframes textReveal {
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes sweep {
