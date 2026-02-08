@@ -10,37 +10,18 @@ export const Home = () => {
   }, []);
 
   return (
-    <div
-      className="home container-fluid d-flex justify-content-center align-items-center position-relative"
-      style={{
-        minHeight: "100dvh", // uses dynamic viewport height
-        width: "100vw",
-        overflow: "hidden",
-      }}
-    >
+    <div className="home container-fluid d-flex justify-content-center align-items-center">
       {/* Background */}
       <div
-        style={{
-          position: "fixed", // fill viewport on all devices
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          backgroundImage: `url(${hairBlesserOfficial})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          zIndex: 0, // behind everything
-        }}
+        className="home-bg"
+        style={{ backgroundImage: `url(${hairBlesserOfficial})` }}
       />
 
+      {/* Stars overlay */}
       <div className="stars-overlay" />
 
-      {/* Main content / button */}
-      <div
-        className="position-relative d-flex justify-content-center align-items-center w-100 h-100"
-        style={{ zIndex: 1 }} // above background, below navbar
-      >
+      {/* Button */}
+      <div className="position-relative d-flex justify-content-center align-items-center w-100 h-100">
         {showButton && (
           <Link to="/book">
             <button type="button" className="custom-btn btn-lg fade-in">
