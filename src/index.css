@@ -1,13 +1,9 @@
-/* =========================
-   Navbar Styling
-   ========================= */
-/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 50; /* above splash, above home-bg */
+  z-index: 50; 
 }
 
 .navbar-brand {
@@ -30,9 +26,6 @@
   border-radius: 12px; 
 }
 
-/* =========================
-   Text Styles (reviews, hours, etc.)
-   ========================= */
 .reviews, .buisnessHours, .cancellationPolicy, .ratingAndReviews,
 .askAQuestion, .sendEmailBtn {
   text-shadow: 4px 4px 6px hotpink;
@@ -47,9 +40,6 @@
   border-radius: 12px; 
 }
 
-/* =========================
-   Form Input Styles
-   ========================= */
 #floatingName, #floatingEmail, #floatingMessage {
   font-family: 'Comic Sans MS', cursive;
 }
@@ -61,9 +51,6 @@
   border-radius: 12px; 
 }
 
-/* =========================
-   Booking / Options Text
-   ========================= */
 .variation-options, .book-title {
   font-family: 'Comic Sans MS', cursive;
   text-shadow: 4px 4px 6px hotpink;
@@ -76,21 +63,17 @@
   border-radius: 12px; 
 }
 
-/* =========================
-   Home Page Layout
-   ========================= */
 .home {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* desktop fallback */
+  min-height: 100vh; 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Background image */
 .home-bg {
-  position: fixed; /* behind everything */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
@@ -101,36 +84,34 @@
   z-index: 0;
 }
 
-/* =========================
-   Mobile-specific Fixes
-   ========================= */
 @media (max-width: 768px) {
-  /* Home container */
-  .home {
-    position: relative;
+  .navbar {
+    flex-wrap: wrap; 
+    padding: 0.5rem 1rem; 
+  }
+
+  .navbar-nav {
+    flex-direction: column; 
     width: 100%;
-    height: 100svh; /* full mobile viewport */
-    padding-top: 56px; /* space for navbar */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin-bottom: 0.25rem;
+  }
+
+  .home {
+    padding-top: 56px; 
+    height: calc(100svh - 56px);
     overflow: hidden;
   }
 
-  /* Background image */
   .home-bg {
-    position: fixed; /* stay behind all content */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100svh; /* full mobile viewport */
-    background-size: cover; /* scale and crop properly */
-    background-position: center center; /* always center image */
-    background-repeat: no-repeat;
-    z-index: 0;
+    height: calc(100svh - 56px); 
+    top: 56px; 
+    background-position: center top; 
   }
 }
-
 
 
 

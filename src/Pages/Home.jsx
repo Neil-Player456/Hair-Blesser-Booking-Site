@@ -11,16 +11,13 @@ export const Home = () => {
 
   return (
     <div className="home container-fluid d-flex justify-content-center align-items-center">
-      {/* Background */}
       <div
         className="home-bg"
         style={{ backgroundImage: `url(${hairBlesserOfficial})` }}
       />
 
-      {/* Stars overlay */}
       <div className="stars-overlay" />
 
-      {/* Button */}
       <div className="position-relative d-flex justify-content-center align-items-center w-100 h-100">
         {showButton && (
           <Link to="/book">
