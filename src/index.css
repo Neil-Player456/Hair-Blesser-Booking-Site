@@ -1,10 +1,18 @@
+/* =========================
+   GLOBAL RESET (fix white gaps)
+========================= */
 html,
 body {
   margin: 0;
   padding: 0;
   background-color: black;
+  height: 100%;
+  overflow-x: hidden;
 }
 
+/* =========================
+   Navbar (unchanged visually)
+========================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -13,6 +21,9 @@ body {
   z-index: 1000;
 }
 
+/* =========================
+   Text & UI styles (UNCHANGED)
+========================= */
 .navbar-brand {
   text-shadow: 4px 4px 6px hotpink;
 }
@@ -84,6 +95,9 @@ body {
   border-radius: 12px;
 }
 
+/* =========================
+   Home – DESKTOP (UNCHANGED)
+========================= */
 .home {
   position: relative;
   width: 100%;
@@ -97,15 +111,26 @@ body {
   position: fixed;
   inset: 0;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
 }
 
+/* =========================
+   MOBILE PORTRAIT FIX (THE REAL FIX)
+========================= */
 @media (max-width: 768px) {
+
+  /* 🔑 remove Bootstrap container padding ONLY on home */
+  .home.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 56px;
+    padding-bottom: 0;
+  }
+
   .home {
-    min-height: 100svh;
-    padding-top: 56px; 
+    min-height: 100dvh; /* correct mobile height */
     overflow: hidden;
   }
 
@@ -114,13 +139,11 @@ body {
     top: 56px;
     left: 0;
     width: 100%;
-    height: calc(100svh - 56px);
-    background-size: contain; 
+    height: calc(100dvh - 56px);
+    background-size: contain; /* show full image */
     background-position: center;
     background-repeat: no-repeat;
-    background-color: black; 
-    z-index: 0;
+    background-color: black;
   }
 }
-
 
