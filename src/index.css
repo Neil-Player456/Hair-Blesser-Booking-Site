@@ -106,14 +106,21 @@
    ========================= */
 @media (max-width: 768px) {
   .home {
-    min-height: 100vh; /* fallback */
-    padding-top: 56px; /* approximate navbar height */
+    padding-top: 56px; /* make space for fixed navbar */
+    min-height: calc(100svh - 56px); /* full mobile viewport minus navbar */
+    overflow: hidden;
   }
 
   .home-bg {
-    height: 100vh;
+    position: absolute; /* ensure it stays behind content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
-    background-position: center center; /* keep center */
+    background-position: center center; /* fully center the image */
+    background-repeat: no-repeat;
+    z-index: 0;
   }
 }
 
