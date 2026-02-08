@@ -7,6 +7,9 @@ body {
   overflow-x: hidden;
 }
 
+/* =========================
+   Navbar (Desktop unchanged)
+========================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -35,6 +38,9 @@ body {
   border-radius: 12px;
 }
 
+/* =========================
+   Text & UI Styles
+========================= */
 .reviews,
 .buisnessHours,
 .cancellationPolicy,
@@ -86,6 +92,9 @@ body {
   border-radius: 12px;
 }
 
+/* =========================
+   Home Layout (Desktop unchanged)
+========================= */
 .home {
   position: relative;
   width: 100%;
@@ -104,42 +113,32 @@ body {
   z-index: 0;
 }
 
-
-/* @media (max-width: 768px) {
-
-  .home.container-fluid {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 56px;
-    padding-bottom: 0;
-  }
-
-  .home {
-    min-height: 100dvh; 
-    overflow: hidden;
-  }
-
-  .home-bg {
-    position: absolute;
-    top: 56px;
-    left: 0;
-    width: 100%;
-    height: calc(100dvh - 56px);
-    background-size: contain; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: black;
-  }
-} */
-
 /* =========================
-   Home Background – Mobile ONLY
+   MOBILE FIXES ONLY
 ========================= */
 @media (max-width: 768px) {
+  /* Shrink navbar so it fits on iPhone */
+  .navbar {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .navbar-brand {
+    font-size: 0.95rem;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Show full background image on mobile */
   .home-bg {
-    background-size: contain; /* fit full image */
+    background-size: contain;
     background-position: center center;
-    background-color: black; /* no white bars */
+    background-color: black;
   }
 }
 
