@@ -152,3 +152,14 @@
     padding: 0 1rem;
   }
 }
+
+/* =========================
+   Splash Intro – Mobile ONLY
+========================= */
+@media (max-width: 768px) {
+  .splash-bg {
+    background-size: contain; /* show full image */
+    background-position: center center;
+    transform: scale(1); /* remove zoom-in crop */
+  }
+}

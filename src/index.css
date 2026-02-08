@@ -1,35 +1,20 @@
-/* =========================
-   GLOBAL iOS SAFETY RESET
-========================= */
 html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   background-color: black;
+  height: 100%;
   overflow-x: hidden;
 }
 
-/* Prevent iOS safe-area white bars */
-body {
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-/* =========================
-   Navbar (unchanged visually)
-========================= */
 .navbar {
   position: fixed;
-  top: env(safe-area-inset-top);
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
 }
 
-/* =========================
-   Text & UI styles (UNCHANGED)
-========================= */
 .navbar-brand {
   text-shadow: 4px 4px 6px hotpink;
 }
@@ -101,9 +86,6 @@ body {
   border-radius: 12px;
 }
 
-/* =========================
-   Home – Desktop (UNCHANGED)
-========================= */
 .home {
   position: relative;
   width: 100%;
@@ -122,32 +104,42 @@ body {
   z-index: 0;
 }
 
-/* =========================
-   iPhone PORTRAIT FIX (FINAL)
-========================= */
-@media (max-width: 768px) {
+
+/* @media (max-width: 768px) {
+
   .home.container-fluid {
-    padding: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 56px;
+    padding-bottom: 0;
   }
 
   .home {
-    min-height: 100dvh;
-    padding-top: calc(56px + env(safe-area-inset-top));
-    padding-bottom: env(safe-area-inset-bottom);
+    min-height: 100dvh; 
     overflow: hidden;
   }
 
   .home-bg {
     position: absolute;
-    top: calc(56px + env(safe-area-inset-top));
+    top: 56px;
     left: 0;
     width: 100%;
-    height: calc(
-      100dvh - 56px - env(safe-area-inset-top) - env(safe-area-inset-bottom)
-    );
-    background-size: contain;
+    height: calc(100dvh - 56px);
+    background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
     background-color: black;
   }
+} */
+
+/* =========================
+   Home Background – Mobile ONLY
+========================= */
+@media (max-width: 768px) {
+  .home-bg {
+    background-size: contain; /* fit full image */
+    background-position: center center;
+    background-color: black; /* no white bars */
+  }
 }
+
