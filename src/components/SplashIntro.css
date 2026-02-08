@@ -5,7 +5,7 @@
   z-index: 99999;
   overflow: hidden;
   animation: splashFade 1s ease forwards;
-  animation-delay: 4s; 
+  animation-delay: 9s; 
 }
 
 .splash-bg {

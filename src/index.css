@@ -1,3 +1,11 @@
+.navbar {
+  position: fixed; /* or sticky */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* above background but below splash intro */
+}
+
 .navbar-brand {
   text-shadow: 4px 4px 6px hotpink;
 }
