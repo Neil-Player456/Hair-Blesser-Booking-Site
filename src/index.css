@@ -7,12 +7,15 @@ body {
   overflow-x: hidden;
 }
 
+/* =========================
+   Navbar (Desktop unchanged)
+========================= */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 2000; /* 🔑 ensure always above pages */
 }
 
 .navbar-brand {
@@ -35,6 +38,9 @@ body {
   border-radius: 12px;
 }
 
+/* =========================
+   UI Text
+========================= */
 .reviews,
 .buisnessHours,
 .cancellationPolicy,
@@ -72,20 +78,9 @@ body {
   border-radius: 12px;
 }
 
-.variation-options,
-.book-title {
-  font-family: "Comic Sans MS", cursive;
-  text-shadow: 4px 4px 6px hotpink;
-}
-
-.variation-options:hover,
-.book-title:hover {
-  box-shadow: 0 0 15px hotpink;
-  color: hotpink;
-  border-color: hotpink;
-  border-radius: 12px;
-}
-
+/* =========================
+   Home (Desktop unchanged)
+========================= */
 .home {
   position: relative;
   width: 100%;
@@ -104,16 +99,18 @@ body {
   z-index: 0;
 }
 
+/* =========================
+   MOBILE FIXES ONLY
+========================= */
 @media (max-width: 768px) {
+  /* Shrink navbar */
   .navbar {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+    padding: 0.25rem 0;
   }
 
   .navbar-brand {
     font-size: 0.95rem;
     line-height: 1.2;
-    white-space: normal;
   }
 
   .navbar-nav .nav-link {
@@ -121,24 +118,23 @@ body {
     padding: 0.4rem 0.6rem;
   }
 
+  /* Hamburger dropdown */
   .navbar-collapse {
     background-color: black;
     padding: 0.75rem 1rem;
-    margin-top: 0.5rem;
     border-radius: 12px;
+    margin-top: 0.5rem;
   }
 
-  .navbar.fixed-top .navbar-collapse {
-    position: relative;
-  }
-
+  /* Push content below navbar (mobile only) */
   body {
-    padding-top: 70px;
+    padding-top: 64px;
   }
 
+  /* Background images on mobile */
   .home-bg {
     background-size: contain;
-    background-position: center center;
+    background-position: center;
     background-color: black;
   }
 }
