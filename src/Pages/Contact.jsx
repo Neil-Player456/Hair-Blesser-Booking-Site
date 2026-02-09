@@ -11,7 +11,7 @@ export const Contact = () => {
         overflow: "hidden",
       }}
     >
-      <div
+      {/* <div
         className="position-absolute w-100 h-100"
         style={{
           backgroundImage: `url(${hairBlesserOfficial})`,
@@ -21,7 +21,7 @@ export const Contact = () => {
           filter: "blur(2px)",
           zIndex: 1,
         }}
-      />
+      /> */}
 
       <div
         className="position-relative z-2 d-flex justify-content-center align-items-center w-100 h-100"
