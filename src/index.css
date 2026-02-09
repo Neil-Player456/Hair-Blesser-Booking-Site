@@ -156,13 +156,14 @@ body {
   }
 
   .home-bg {
-    background-size: contain;
+    background-size: cover;
     background-position: center;
-    background-color: black;
+    width: 100vw;
+    height: 100svh;
   }
 
   .contact-bg {
-    filter: blur(2px); 
+    filter: blur(2px);
     background-size: cover;
     background-position: center;
     height: 100svh;
@@ -170,6 +171,6 @@ body {
 
   .contact-content {
     min-height: 100svh;
-    padding-top: 64px; 
+    padding-top: 64px;
   }
 }
