@@ -7,9 +7,6 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================
-   Navbar (DESKTOP UNCHANGED)
-========================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -18,7 +15,6 @@ body {
   z-index: 2000;
 }
 
-/* Branding */
 .navbar-brand {
   text-shadow: 4px 4px 6px hotpink;
 }
@@ -30,7 +26,6 @@ body {
   border-radius: 12px;
 }
 
-/* Links */
 .navbar-nav .nav-link {
   transition: box-shadow 0.2s ease-in-out;
 }
@@ -40,9 +35,6 @@ body {
   border-radius: 12px;
 }
 
-/* =========================
-   Text / UI
-========================= */
 .reviews,
 .buisnessHours,
 .cancellationPolicy,
@@ -71,9 +63,6 @@ body {
   font-family: "Comic Sans MS", cursive;
 }
 
-/* =========================
-   Home (DESKTOP UNCHANGED)
-========================= */
 .home {
   position: relative;
   width: 100%;
@@ -92,63 +81,16 @@ body {
   z-index: 0;
 }
 
-/* =========================
-   MOBILE FIXES ONLY
-========================= */
-@media (max-width: 768px) {
-
-  /* Shrink navbar height */
-  .navbar {
-    padding: 0.25rem 0;
-  }
-
-  .navbar-brand {
-    font-size: 0.95rem;
-    line-height: 1.2;
-    white-space: normal;
-  }
-
-  /* Make hamburger dropdown clean */
-  .navbar-collapse {
-    background-color: black;
-    padding: 0.75rem 1rem;
-    border-radius: 0 0 16px 16px;
-  }
-
-  /* Ensure dropdown pushes content instead of overlaying */
-  .navbar-collapse.show {
-    position: relative;
-  }
-
-  /* Push page sections down (NOT body) */
-  .home,
-  .contact,
-  .about {
-    padding-top: 64px;
-  }
-
-  /* Background images on mobile */
-  .home-bg {
-    background-size: contain;
-    background-position: center;
-    background-color: black;
-  }
-}
-
-/* =========================
-   Contact Page Background
-========================= */
-
 .contact-page {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* desktop */
+  min-height: 100vh; 
 }
 
 .contact-bg {
   position: fixed;
   inset: 0;
-  background-size: cover;       /* 🔑 fills entire phone */
+  background-size: cover;       
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
@@ -160,14 +102,49 @@ body {
   min-height: 100vh;
 }
 
-/* 📱 iPhone fix */
 @media (max-width: 768px) {
-  .contact-page {
-    min-height: 100svh; /* 🔑 real mobile height */
+  /* Navbar */
+  .navbar {
+    padding: 0.25rem 0;
+  }
+
+  .navbar-brand {
+    font-size: 0.95rem;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .navbar-collapse {
+    background-color: black;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .navbar-collapse.show {
+    position: relative;
+  }
+
+  .home,
+  .contact-page,
+  .about {
+    padding-top: 64px;
+  }
+
+  .home-bg {
+    background-size: contain;
+    background-position: center;
+    background-color: black;
+  }
+
+  .contact-bg {
+    filter: blur(2px); 
+    background-size: cover;
+    background-position: center;
+    height: 100svh;
   }
 
   .contact-content {
     min-height: 100svh;
-    padding-top: 64px; /* navbar space */
+    padding-top: 64px; 
   }
 }
