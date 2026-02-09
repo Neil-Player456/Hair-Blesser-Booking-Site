@@ -21,6 +21,11 @@
   box-shadow: 0 0 12px hotpink;
 }
 
+.modal-footer .btn-hotpink {
+  font-size: 3rem; 
+  padding: 2rem 4rem; 
+}
+
 .card-body {
   color: white;
   font-weight: bold;
