@@ -6,7 +6,7 @@ export const Contact = () => {
     <div
       className="home container-fluid d-flex justify-content-center align-items-center position-relative"
       style={{
-        height: "100vh",
+        minHeight: "100vh",
         width: "100vw",
         overflow: "hidden",
       }}
