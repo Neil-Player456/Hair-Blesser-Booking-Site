@@ -9,7 +9,7 @@ export default function Navbar() {
           HairBlesser Fashioned by Jorgia
         </NavLink>
 
-        {/* Hamburger button */}
+        {/* Hamburger button (mobile only automatically) */}
         <button
           className="navbar-toggler"
           type="button"
@@ -22,48 +22,32 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar links */}
-        <div className="collapse navbar-collapse" id="main-navbar">
-          <ul className="navbar-nav ms-auto">
+        {/* Collapsible links */}
+        <div
+          className="collapse navbar-collapse mt-2 mt-lg-0"
+          id="main-navbar"
+        >
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 text-center text-lg-start">
             <li className="nav-item">
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) =>
-                  "nav-link" + (isActive ? " active" : "")
-                }
-              >
+              <NavLink to="/" end className="nav-link">
                 Home
               </NavLink>
             </li>
+
             <li className="nav-item">
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  "nav-link" + (isActive ? " active" : "")
-                }
-              >
+              <NavLink to="/about" className="nav-link">
                 About
               </NavLink>
             </li>
+
             <li className="nav-item">
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  "nav-link" + (isActive ? " active" : "")
-                }
-              >
+              <NavLink to="/contact" className="nav-link">
                 Contact
               </NavLink>
             </li>
+
             <li className="nav-item">
-              <NavLink
-                to="/book"
-                end
-                className={({ isActive }) =>
-                  "nav-link" + (isActive ? " active" : "")
-                }
-              >
+              <NavLink to="/book" className="nav-link">
                 Book
               </NavLink>
             </li>
