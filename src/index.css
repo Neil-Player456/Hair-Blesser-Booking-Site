@@ -103,7 +103,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Navbar */
+  /* Navbar shrink */
   .navbar {
     padding: 0.25rem 0;
   }
@@ -114,6 +114,14 @@ body {
     white-space: normal;
   }
 
+  .navbar-toggler {
+    border-color: hotpink;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='hotpink' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
   .navbar-collapse {
     background-color: black;
     padding: 0.75rem 1rem;
@@ -122,6 +130,19 @@ body {
 
   .navbar-collapse.show {
     position: relative;
+  }
+
+  .navbar-collapse .nav-link {
+    color: white;
+    text-shadow: 4px 4px 6px hotpink;
+    transition: all 0.2s ease-in-out;
+    padding: 0.5rem 0;
+  }
+
+  .navbar-collapse .nav-link:hover {
+    box-shadow: 0 0 15px hotpink;
+    color: hotpink;
+    border-radius: 12px;
   }
 
   .home,
