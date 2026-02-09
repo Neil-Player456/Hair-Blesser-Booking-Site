@@ -8,7 +8,7 @@
   border-radius: 12px;
   transition: all 0.3s ease;
   font-family: "Brush Script MT", "Brush Script Std", cursive;
-  font-size: clamp(2.5rem, 2vw, 4rem);
+  font-size: 8px;
 }
 
 .custom-btn {
