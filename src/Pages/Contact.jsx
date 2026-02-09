@@ -4,6 +4,7 @@ import hairBlesserOfficial from "../assets/hairBlesserOfficial.png";
 export const Contact = () => {
   return (
     <div className="contact-page home container-fluid d-flex justify-content-center align-items-center position-relative">
+      
       <div
         className="contact-bg position-fixed top-0 start-0 w-100 h-100"
         style={{
@@ -16,16 +17,20 @@ export const Contact = () => {
       />
 
       <div
-        className="contact-content position-relative z-2 d-flex justify-content-center align-items-center w-100 h-100"
+        className="contact-content position-relative z-2 d-flex flex-column justify-content-center align-items-center w-100 h-100"
         style={{ zIndex: 2 }}
       >
+        <h1 className="contact-title text-center mb-4">
+          Contact Me
+        </h1>
+
         <div
           className="section bg-dark bg-opacity-75 p-5 rounded-4 shadow-lg text-white w-100"
           style={{ maxWidth: "500px" }}
         >
-          <h1 className="askAQuestion text-center mb-4">
+          <h2 className="askAQuestion text-center mb-4">
             Ask Hair Blesser A Question
-          </h1>
+          </h2>
 
           <div className="form-floating mb-3">
             <input
