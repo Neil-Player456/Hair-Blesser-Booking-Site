@@ -8,16 +8,17 @@ body {
 }
 
 /* =========================
-   Navbar (Desktop unchanged)
+   Navbar (DESKTOP UNCHANGED)
 ========================= */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 2000; /* 🔑 ensure always above pages */
+  z-index: 2000;
 }
 
+/* Branding */
 .navbar-brand {
   text-shadow: 4px 4px 6px hotpink;
 }
@@ -29,6 +30,7 @@ body {
   border-radius: 12px;
 }
 
+/* Links */
 .navbar-nav .nav-link {
   transition: box-shadow 0.2s ease-in-out;
 }
@@ -39,7 +41,7 @@ body {
 }
 
 /* =========================
-   UI Text
+   Text / UI
 ========================= */
 .reviews,
 .buisnessHours,
@@ -69,17 +71,8 @@ body {
   font-family: "Comic Sans MS", cursive;
 }
 
-#floatingName:hover,
-#floatingEmail:hover,
-#floatingMessage:hover {
-  box-shadow: 0 0 15px hotpink;
-  color: hotpink;
-  border-color: hotpink;
-  border-radius: 12px;
-}
-
 /* =========================
-   Home (Desktop unchanged)
+   Home (DESKTOP UNCHANGED)
 ========================= */
 .home {
   position: relative;
@@ -103,7 +96,8 @@ body {
    MOBILE FIXES ONLY
 ========================= */
 @media (max-width: 768px) {
-  /* Shrink navbar */
+
+  /* Shrink navbar height */
   .navbar {
     padding: 0.25rem 0;
   }
@@ -111,23 +105,25 @@ body {
   .navbar-brand {
     font-size: 0.95rem;
     line-height: 1.2;
+    white-space: normal;
   }
 
-  .navbar-nav .nav-link {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.6rem;
-  }
-
-  /* Hamburger dropdown */
+  /* Make hamburger dropdown clean */
   .navbar-collapse {
     background-color: black;
     padding: 0.75rem 1rem;
-    border-radius: 12px;
-    margin-top: 0.5rem;
+    border-radius: 0 0 16px 16px;
   }
 
-  /* Push content below navbar (mobile only) */
-  body {
+  /* Ensure dropdown pushes content instead of overlaying */
+  .navbar-collapse.show {
+    position: relative;
+  }
+
+  /* Push page sections down (NOT body) */
+  .home,
+  .contact,
+  .about {
     padding-top: 64px;
   }
 
