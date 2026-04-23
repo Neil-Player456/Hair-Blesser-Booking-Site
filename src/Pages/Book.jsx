@@ -875,6 +875,7 @@ const hairstylesBook = [
     disclaimer: "Hair included. Pease have hair washed - blow dried.",
   },
 ];
+
 const Book = () => {
   const [selectedStyle, setSelectedStyle] = useState(null);
   const [selectedVariation, setSelectedVariation] = useState("");
@@ -890,7 +891,9 @@ const Book = () => {
   useEffect(() => {
     fetch("http://localhost:5000/api/bookings")
       .then((res) => res.json())
-      .then((data) => setBookedDates(data.map((d) => new Date(d.datetime))))
+      .then((data) =>
+        setBookedDates(data.map((d) => new Date(d.datetime)))
+      )
       .catch(console.error);
   }, []);
 
@@ -901,48 +904,62 @@ const Book = () => {
     setName("");
     setEmail("");
     setPhone("");
+    setError("");
+    setSuccessMessage("");
   };
 
-const handleSubmit = () => {
-  if (!bookingDate || !selectedStyle || !name || !email || !phone) return;
+  const handleSubmit = () => {
+    if (!bookingDate || !selectedStyle || !name || !email || !phone) return;
 
-  setLoading(true);
-  setError("");
+    // FRONTEND DOUBLE BOOKING CHECK
+    const alreadyBooked = bookedDates.some(
+      (d) => d.getTime() === bookingDate.getTime()
+    );
 
-  const payload = {
-    name,
-    email,
-    phone,
-    style: selectedStyle.name,
-    variation: selectedVariation,
-    datetime: bookingDate.toISOString(),
+    if (alreadyBooked) {
+      setError("This time is already booked.");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    const payload = {
+      name,
+      email,
+      phone,
+      style: selectedStyle.name,
+      variation: selectedVariation,
+      datetime: bookingDate.toISOString(),
+    };
+
+    fetch("http://localhost:5000/api/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Time slot already booked");
+        return res.json();
+      })
+      .then((saved) => {
+        setBookedDates([...bookedDates, new Date(saved.datetime)]);
+
+        // clear form
+        setName("");
+        setEmail("");
+        setPhone("");
+        setSelectedVariation("");
+        setBookingDate(null);
+
+        // success message
+        setSuccessMessage("Booking Confirmed! Have A Blessed Day 🎉");
+      })
+      .catch((err) => {
+        setError(err.message || "Something went wrong");
+      })
+      .finally(() => setLoading(false));
   };
-
-  fetch("http://localhost:5000/api/bookings", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  })
-    .then((res) => {
-      if (!res.ok) throw new Error("Time slot already booked");
-      return res.json();
-    })
-    .then((saved) => {
-      setBookedDates([...bookedDates, new Date(saved.datetime)]);
-
-      setName("");
-      setEmail("");
-      setPhone("");
-      setSelectedVariation("");
-      setBookingDate(null);
-
-      setSuccessMessage("Booking Confirmed! Have A Blessed Day 🎉");
-    })
-    .catch((err) => {
-      setError(err.message || "Something went wrong");
-    })
-    .finally(() => setLoading(false));
-};
 
   return (
     <div
@@ -1005,101 +1022,142 @@ const handleSubmit = () => {
                   onClick={() => setSelectedStyle(null)}
                 />
               </div>
+
               <div className="modal-body">
-                <p className="text-warning">
-                  <strong>Note:</strong> {selectedStyle.disclaimer}
-                </p>
-
-                <div className="mb-3">
-                  <label>Variation</label>
-                  <select
-                    className="form-select"
-                    value={selectedVariation}
-                    onChange={(e) => setSelectedVariation(e.target.value)}
-                  >
-                    {selectedStyle.variations.map((v, i) => (
-                      <option key={i} value={v}>
-                        {v}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <p>
-                  <strong>Price:</strong>{" "}
-                  {selectedStyle.prices[selectedVariation] ?? "TBD"}
-                  <br />
-                  <strong>Duration:</strong>{" "}
-                  {selectedStyle.durations[selectedVariation] ?? "TBD"} hrs
-                </p>
-
-                <div className="mb-3">
-                  <label>Name</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label>Phone</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label>Choose date & time</label>
-                  <DatePicker
-                    selected={bookingDate}
-                    onChange={(date) => setBookingDate(date)}
-                    showTimeSelect
-                    timeIntervals={30}
-                    minDate={new Date()}
-                    excludeTimes={bookedDates.filter(
-                      (d) =>
-                        bookingDate &&
-                        d.toDateString() === bookingDate.toDateString(),
+                {/* success view */}
+                {successMessage ? (
+                  <div className="text-center py-5">
+                    <h4 className="text-success">{successMessage}</h4>
+                    <button
+                      className="btn btn-hotpink mt-3"
+                      onClick={() => {
+                        setSuccessMessage("");
+                        setSelectedStyle(null);
+                      }}
+                    >
+                      Close
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    {/* ERROR */}
+                    {error && (
+                      <div className="alert alert-danger text-center">
+                        {error}
+                      </div>
                     )}
-                    dateFormat="MMMM d, yyyy h:mm aa"
-                    className="form-control"
-                  />
-                </div>
+
+                    <p className="text-warning">
+                      <strong>Note:</strong> {selectedStyle.disclaimer}
+                    </p>
+
+                    <div className="mb-3">
+                      <label>Variation</label>
+                      <select
+                        className="form-select"
+                        value={selectedVariation}
+                        onChange={(e) =>
+                          setSelectedVariation(e.target.value)
+                        }
+                      >
+                        {selectedStyle.variations.map((v, i) => (
+                          <option key={i} value={v}>
+                            {v}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <p>
+                      <strong>Price:</strong>{" "}
+                      {selectedStyle.prices[selectedVariation] ?? "TBD"}
+                      <br />
+                      <strong>Duration:</strong>{" "}
+                      {selectedStyle.durations[selectedVariation] ?? "TBD"} hrs
+                    </p>
+
+                    <div className="mb-3">
+                      <label>Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+
+                    <div className="mb-3">
+                      <label>Email</label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+
+                    <div className="mb-3">
+                      <label>Phone</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                    </div>
+
+                    <div className="mb-3">
+                      <label>Choose date & time</label>
+                      <DatePicker
+                        selected={bookingDate}
+                        onChange={(date) => setBookingDate(date)}
+                        showTimeSelect
+                        timeIntervals={30}
+                        minDate={new Date()}
+                        excludeTimes={bookedDates.filter(
+                          (d) =>
+                            bookingDate &&
+                            d.toDateString() ===
+                              bookingDate.toDateString()
+                        )}
+                        dateFormat="MMMM d, yyyy h:mm aa"
+                        className="form-control"
+                      />
+                    </div>
+                  </>
+                )}
               </div>
 
-              <div className="modal-footer border-0 justify-content-center">
-                <button
-                  className="btn btn-secondary"
-                  onClick={() => setSelectedStyle(null)}
-                >
-                  Cancel
-                </button>
-                <button
-                  className="btn btn-hotpink"
-                  onClick={handleSubmit}
-                  disabled={!bookingDate}
-                >
-                  Book Now
-                </button>
-              </div>
+              {/* FOOTER ONLY SHOWS WHEN NOT SUCCESS */}
+              {!successMessage && (
+                <div className="modal-footer border-0 justify-content-center">
+                  <button
+                    className="btn btn-hotpink"
+                    onClick={() => setSelectedStyle(null)}
+                    disabled={loading}
+                  >
+                    Cancel
+                  </button>
+
+                  <button
+                    className="btn btn-hotpink"
+                    onClick={handleSubmit}
+                    disabled={
+                      loading ||
+                      !bookingDate ||
+                      !name ||
+                      !email ||
+                      !phone
+                    }
+                  >
+                    {loading ? (
+                      <span className="spinner-border spinner-border-sm text-light"></span>
+                    ) : (
+                      "Book Now"
+                    )}
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
