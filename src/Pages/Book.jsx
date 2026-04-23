@@ -883,6 +883,7 @@ const Book = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/api/bookings")
@@ -918,12 +919,17 @@ const Book = () => {
       .then((res) => res.json())
       .then((saved) => {
         setBookedDates([...bookedDates, new Date(saved.datetime)]);
+       
+        //clear form
         setName("");
         setEmail("");
         setPhone("");
         setSelectedVariation("");
         setBookingDate(null);
         setSelectedStyle(null);
+
+        //success message
+        setSuccessMessage("Booking Confirmed! Have A Blessed Day 🎉")
       })
       .catch(console.error);
   };
