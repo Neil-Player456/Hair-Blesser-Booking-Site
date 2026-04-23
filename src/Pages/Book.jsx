@@ -903,37 +903,46 @@ const Book = () => {
     setPhone("");
   };
 
-  const handleSubmit = () => {
-    if (!bookingDate || !selectedStyle || !name || !email || !phone) return;
-    const payload = {
-      name,
-      email,
-      phone,
-      style: selectedStyle.name,
-      variation: selectedVariation,
-      datetime: bookingDate.toISOString(),
-    };
-    fetch("http://localhost:5000/api/bookings", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    })
-      .then((res) => res.json())
-      .then((saved) => {
-        setBookedDates([...bookedDates, new Date(saved.datetime)]);
+const handleSubmit = () => {
+  if (!bookingDate || !selectedStyle || !name || !email || !phone) return;
 
-        //clear form
-        setName("");
-        setEmail("");
-        setPhone("");
-        setSelectedVariation("");
-        setBookingDate(null);
+  setLoading(true);
+  setError("");
 
-        //success message
-        setSuccessMessage("Booking Confirmed! Have A Blessed Day 🎉");
-      })
-      .catch(console.error);
+  const payload = {
+    name,
+    email,
+    phone,
+    style: selectedStyle.name,
+    variation: selectedVariation,
+    datetime: bookingDate.toISOString(),
   };
+
+  fetch("http://localhost:5000/api/bookings", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("Time slot already booked");
+      return res.json();
+    })
+    .then((saved) => {
+      setBookedDates([...bookedDates, new Date(saved.datetime)]);
+
+      setName("");
+      setEmail("");
+      setPhone("");
+      setSelectedVariation("");
+      setBookingDate(null);
+
+      setSuccessMessage("Booking Confirmed! Have A Blessed Day 🎉");
+    })
+    .catch((err) => {
+      setError(err.message || "Something went wrong");
+    })
+    .finally(() => setLoading(false));
+};
 
   return (
     <div
