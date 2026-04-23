@@ -900,11 +900,14 @@ const Book = () => {
   const handleSubmit = () => {
     if (!bookingDate || !selectedStyle) return;
     const payload = {
+      name,
+      email,
+      phone,
       style: selectedStyle.name,
       variation: selectedVariation,
       datetime: bookingDate.toISOString(),
     };
-    fetch("/api/bookings", {
+    fetch("http://localhost:5000/api/bookings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
