@@ -884,6 +884,8 @@ const Book = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/api/bookings")
@@ -896,9 +898,9 @@ const Book = () => {
     setSelectedStyle(style);
     setSelectedVariation(style.variations[0]);
     setBookingDate(null);
-    setName("")
-    setEmail("")
-    setPhone("")
+    setName("");
+    setEmail("");
+    setPhone("");
   };
 
   const handleSubmit = () => {
@@ -919,17 +921,16 @@ const Book = () => {
       .then((res) => res.json())
       .then((saved) => {
         setBookedDates([...bookedDates, new Date(saved.datetime)]);
-       
+
         //clear form
         setName("");
         setEmail("");
         setPhone("");
         setSelectedVariation("");
         setBookingDate(null);
-        setSelectedStyle(null);
 
         //success message
-        setSuccessMessage("Booking Confirmed! Have A Blessed Day 🎉")
+        setSuccessMessage("Booking Confirmed! Have A Blessed Day 🎉");
       })
       .catch(console.error);
   };
@@ -1064,7 +1065,11 @@ const Book = () => {
                     showTimeSelect
                     timeIntervals={30}
                     minDate={new Date()}
-                    excludeDates={bookedDates}
+                    excludeTimes={bookedDates.filter(
+                      (d) =>
+                        bookingDate &&
+                        d.toDateString() === bookingDate.toDateString(),
+                    )}
                     dateFormat="MMMM d, yyyy h:mm aa"
                     className="form-control"
                   />
