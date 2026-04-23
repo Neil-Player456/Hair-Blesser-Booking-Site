@@ -9,11 +9,11 @@ CORS(app)
 # Temporary in-memory storage (will replace this with a DB later)
 bookings = []
 
-@app.route("/api/bookings", methods=["GET"])
+@app.route("http://localhost:5000/api/bookings", methods=["GET"])
 def get_bookings():
     return jsonify(bookings), 200
 
-@app.route("/api/bookings", methods=["POST"])
+@app.route("http://localhost:5000/api/bookings", methods=["POST"])
 def create_booking():
     data = request.json
 

@@ -3,7 +3,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import hairBlesserOfficial from "../assets/hairBlesserOfficial.png";
 
-
 const hairstylesBook = [
   {
     name: "Crochet",
@@ -145,11 +144,11 @@ const hairstylesBook = [
     variations: ["Starter Service", "Maintenance"],
     prices: {
       "Starter Service": null,
-      "Maintenance": null,
+      Maintenance: null,
     },
     durations: {
       "Starter Service": null,
-      "Maintenance": null,
+      Maintenance: null,
     },
     disclaimer:
       "Plese have hair washed - blow dried for starter service. For a maintenance service wash is included. Your hair has to be at least 3 inches for the starter service.",
@@ -814,15 +813,15 @@ const hairstylesBook = [
     image: hairBlesserOfficial,
     variations: ["Medium", "Smedium", "Small", "X-small"],
     prices: {
-      "Medium": null,
-      "Smedium": null,
-      "Small": null,
+      Medium: null,
+      Smedium: null,
+      Small: null,
       "X-small": null,
     },
     durations: {
-      "Medium": null,
-      "Smedium": null,
-      "Small": null,
+      Medium: null,
+      Smedium: null,
+      Small: null,
       "X-small": null,
     },
     disclaimer: "Hair included. Pease have hair washed - blow dried.",
@@ -881,13 +880,14 @@ const Book = () => {
   const [selectedVariation, setSelectedVariation] = useState("");
   const [bookingDate, setBookingDate] = useState(null);
   const [bookedDates, setBookedDates] = useState([]);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
   useEffect(() => {
     fetch("/api/bookings")
       .then((res) => res.json())
-      .then((data) =>
-        setBookedDates(data.map((d) => new Date(d.datetime)))
-      )
+      .then((data) => setBookedDates(data.map((d) => new Date(d.datetime))))
       .catch(console.error);
   }, []);
 
@@ -898,7 +898,7 @@ const Book = () => {
   };
 
   const handleSubmit = () => {
-    if (!bookingDate || !selectedStyle) return;
+    if (!bookingDate || !selectedStyle || !name || !email || !phone) return;
     const payload = {
       name,
       email,
@@ -925,7 +925,6 @@ const Book = () => {
       className="home container-fluid position-relative text-white"
       style={{ minHeight: "100vh" }}
     >
-
       <div
         className="position-fixed top-0 start-0 w-100 h-100"
         style={{
@@ -992,9 +991,7 @@ const Book = () => {
                   <select
                     className="form-select"
                     value={selectedVariation}
-                    onChange={(e) =>
-                      setSelectedVariation(e.target.value)
-                    }
+                    onChange={(e) => setSelectedVariation(e.target.value)}
                   >
                     {selectedStyle.variations.map((v, i) => (
                       <option key={i} value={v}>
@@ -1011,6 +1008,39 @@ const Book = () => {
                   <strong>Duration:</strong>{" "}
                   {selectedStyle.durations[selectedVariation] ?? "TBD"} hrs
                 </p>
+
+                <div className="mb-3">
+                  <label>Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label>Phone</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                  />
+                </div>
 
                 <div className="mb-3">
                   <label>Choose date & time</label>
