@@ -885,7 +885,7 @@ const Book = () => {
   const [phone, setPhone] = useState("");
 
   useEffect(() => {
-    fetch("/api/bookings")
+    fetch("http://localhost:5000/api/bookings")
       .then((res) => res.json())
       .then((data) => setBookedDates(data.map((d) => new Date(d.datetime))))
       .catch(console.error);
@@ -915,6 +915,11 @@ const Book = () => {
       .then((res) => res.json())
       .then((saved) => {
         setBookedDates([...bookedDates, new Date(saved.datetime)]);
+        setName("");
+        setEmail("");
+        setPhone("");
+        setSelectedVariation("");
+        setBookingDate(null);
         setSelectedStyle(null);
       })
       .catch(console.error);
