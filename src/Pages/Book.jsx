@@ -895,6 +895,9 @@ const Book = () => {
     setSelectedStyle(style);
     setSelectedVariation(style.variations[0]);
     setBookingDate(null);
+    setName("")
+    setEmail("")
+    setPhone("")
   };
 
   const handleSubmit = () => {
