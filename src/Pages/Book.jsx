@@ -1067,7 +1067,7 @@ const Book = () => {
                         ))}
                       </select>
                     </div>
-
+{/* fix message */}
                     <p>
                       <strong>Price:</strong>{" "}
                       {selectedStyle.prices[selectedVariation] ?? "TBD"}
