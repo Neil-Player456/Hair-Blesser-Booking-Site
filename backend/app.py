@@ -75,3 +75,14 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", "5000"))
     debug = os.environ.get("FLASK_DEBUG", "").lower() in ("1", "true", "yes")
     app.run(host=host, port=port, debug=debug)
+
+
+@app.route("/api/admin/bookings", methods=["GET"])
+def admin_get_bookings():
+    return jsonify(bookings), 200
+
+@app.route("/api/admin/bookings/<booking_id>", methods=["DELETE"])
+def delete_booking(booking_id):
+    global bookings
+    bookings = [b for b in bookings if b["id"] != booking_id]
+    return jsonify({"message": "Deleted"}), 200
