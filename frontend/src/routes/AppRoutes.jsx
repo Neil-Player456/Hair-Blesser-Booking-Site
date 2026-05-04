@@ -13,6 +13,7 @@ export const AppRoutes = () => {
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
       <Route path="book" element={<Book />} />
+      <Route path="/admin" element={<AdminDashboard />} />
     </Routes>
   );
-}
+};
