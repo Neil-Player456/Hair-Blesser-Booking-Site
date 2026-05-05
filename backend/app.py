@@ -4,12 +4,20 @@ from datetime import datetime
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 
 app = Flask(__name__)
 
 # Temporary in-memory storage (will replace this with a DB later)
 bookings = []
 
+app.config["JWT_SECRET_KEY"] = "super-secret-key-change-this"
+jwt = JWTManager(app)
+
+ADMIN_USER = {
+    "username": "admin",
+    "password": "1234"
+}
 
 def _cors_origins():
     raw = os.environ.get("CORS_ORIGINS", "").strip()
@@ -77,12 +85,30 @@ if __name__ == "__main__":
     app.run(host=host, port=port, debug=debug)
 
 
+@app.route("/api/admin/login", methods=["POST"])
+def admin_login():
+    data = request.json
+
+    if (
+        data["username"] == ADMIN_USER["username"]
+        and data["password"] == ADMIN_USER["password"]
+    ):
+        token = create_access_token(identity="admin")
+        return jsonify({"token": token}), 200
+
+    return jsonify({"error": "Invalid credentials"}), 401
+
+
 @app.route("/api/admin/bookings", methods=["GET"])
+@jwt_required()
 def admin_get_bookings():
-    return jsonify(bookings), 200
+    return jsonify(bookings)
+
 
 @app.route("/api/admin/bookings/<booking_id>", methods=["DELETE"])
 def delete_booking(booking_id):
     global bookings
     bookings = [b for b in bookings if b["id"] != booking_id]
     return jsonify({"message": "Deleted"}), 200
+
+
